@@ -9,6 +9,7 @@ SQLALCHEMY_ALVO_URL = "postgresql+psycopg2://postgres:postgres@localhost:5432/al
 engine_fonte = create_engine(SQLALCHEMY_FONTE_URL)
 engine_alvo = create_engine(SQLALCHEMY_ALVO_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_fonte)
+SessionAlvo = sessionmaker(autocommit=False, autoflush=False, bind=engine_alvo)
 
 Base_fonte = declarative_base()
 Base_alvo = declarative_base()

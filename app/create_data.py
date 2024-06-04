@@ -1,7 +1,6 @@
 import pandas as pd
 import random
 import datetime
-from fastapi import Depends, FastAPI
 from fastapi.testclient import TestClient
 from .database import engine_fonte as engine
 
@@ -10,8 +9,8 @@ class CreateData:
         self.app = app
         self.client = TestClient(self.app)
 
-        # Definindo a data inicial (31 de março de 2024, 00:00)
-        start_date = datetime.datetime(2024, 3, 31, 0, 0)
+        # Definindo a data inicial (27 de maio de 2024, 00:00)
+        start_date = datetime.datetime(2024, 5, 27, 0, 0)
         data_size = 200
 
         # Criando os dados

@@ -1,8 +1,13 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import func, Date
 from . import models, schemas
+import datetime
 
-def get_data(db: Session, data_id: int):
-    return db.query(models.Data).filter(models.Data.id == data_id).first()
+def get_data_in_time_range(db: Session, start_time: datetime.datetime, end_time: datetime.datetime):
+    return db.query(models.Data).filter(models.Data.timestamp >= start_time).filter(models.Data.timestamp <= end_time).all()
+
+def get_data_in_day(db: Session, day: datetime.date):
+    return db.query(models.Data).filter(func.cast(models.Data.timestamp, Date) == day).all()
 
 def get_all_data(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Data).offset(skip).limit(limit).all()
