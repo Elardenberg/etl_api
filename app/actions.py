@@ -9,8 +9,8 @@ def get_data_in_time_range(db: Session, start_time: datetime.datetime, end_time:
 def get_data_in_day(db: Session, day: datetime.date):
     return db.query(models.Data).filter(func.cast(models.Data.timestamp, Date) == day).all()
 
-def get_all_data(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Data).offset(skip).limit(limit).all()
+def get_all_data(db: Session):
+    return db.query(models.Data).all()
 
 def insert_data(db: Session, data: schemas.Data):
     db_data = models.Data(

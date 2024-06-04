@@ -28,8 +28,8 @@ def get_db_alvo():
 
 
 @app.get("/all_data/", response_model=list[schemas.Data])
-def read_data(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-  data = actions.get_all_data(db, skip=skip, limit=limit)
+def read_data(db: Session = Depends(get_db)):
+  data = actions.get_all_data(db)
   return data
 
 @app.get("/data_in_time_range/", response_model=list[schemas.Data])
@@ -49,4 +49,9 @@ def upload_data(data: schemas.Data, db: Session = Depends(get_db)):
 @app.get("/signals/", response_model=list[schemas_alvo.Signal])
 def read_signals(db: Session = Depends(get_db_alvo)):
   data = actions_alvo.get_signals(db)
-  return data   
+  return data
+
+@app.get("/alvo/data", response_model=list[schemas_alvo.Data])
+def read_alvo_data(db: Session = Depends(get_db_alvo)):
+  data = actions_alvo.get_data(db)
+  return data 
