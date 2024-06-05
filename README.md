@@ -6,7 +6,7 @@ Neste projeto, foram criados dois bancos de dados, Fonte e Alvo, escritos em **p
 
 Primeiramente, para evitar conflitos entre versões de bibliotecas utilizadas no projeto, recomenda-se a criação de uma 'VENV' (virtual environment).
 
-**_python -m venv venv_**
+**_python3 -m venv venv_**
 
 Para acessar o ambiente virtual, execute:
 
