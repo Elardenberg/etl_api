@@ -26,7 +26,7 @@ Em seguida, vamos instalar as dependências nesse ambiente virtual:
 
 **_pip install httpx_**
 
-Após isso, podemos executar o projeto. Certifique-se de ter o Docker instalado em sua máquina. Para subir o banco de dados, execute:
+Após isso, podemos executar o projeto. Certifique-se de ter o Docker e o Postgresql instalados em sua máquina. Neste projeto, foi utilizada a versão 14.11 do postgres, como pode ser verificado no arquivo _docker-compose.yml_. Para subir o banco de dados, execute:
 
 **_make psql-up_**
 
